@@ -11,14 +11,8 @@ function template() {
 package main
 
 import (
-	u "aoc-in-go/utils"
-
 	"github.com/jpillora/puzzler/harness/aoc"
 )
-
-func useImports() {
-	_ = u.PrintHello
-}
 
 func main() {
 	aoc.Harness(run)
@@ -38,6 +32,7 @@ func run(part2 bool, input string) any {
 	}
 	return part_1(input)
 }
+
 
 EOF
 }

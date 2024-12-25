@@ -67,6 +67,22 @@ func CountInt(l []int, target int) int {
 	return count
 }
 
+func IsSortedInt(l []int, f func(int, int) bool) bool {
+	for i := 1; i < len(l); i++ {
+		if !f(l[i-1], l[i]) {
+			return false
+		}
+	}
+	return true
+}
+
+func RemoveAtIndex(l *[]int, index int) {
+	if index < 0 || index >= len(*l) {
+		return
+	}
+	*l = append((*l)[:index], (*l)[index+1:]...)
+}
+
 func main() {
 	input := "Hello, Advent of Code 2021! Here are some numbers: 123, 456, and 789."
 	fmt.Println(Nums(input)) // Output: [2021, 123, 456, 789]
