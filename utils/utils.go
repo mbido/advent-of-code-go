@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"regexp"
 	"strconv"
+
+	"github.com/hmdsefi/gograph"
 )
 
 // Example of a generic function
@@ -86,4 +88,6 @@ func RemoveAtIndex(l *[]int, index int) {
 func main() {
 	input := "Hello, Advent of Code 2021! Here are some numbers: 123, 456, and 789."
 	fmt.Println(Nums(input)) // Output: [2021, 123, 456, 789]
+	graph := gograph.New[int](gograph.Directed())
+	graph.AddEdge(gograph.NewVertex(1), gograph.NewVertex(2))
 }
