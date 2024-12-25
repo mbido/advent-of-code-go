@@ -11,27 +11,34 @@ function template() {
 package main
 
 import (
+	u "aoc-in-go/utils"
+
 	"github.com/jpillora/puzzler/harness/aoc"
 )
+
+func useImports() {
+	_ = u.PrintHello
+}
 
 func main() {
 	aoc.Harness(run)
 }
 
-// on code change, run will be executed 4 times:
-// 1. with: false (part1), and example input
-// 2. with: true (part2), and example input
-// 3. with: false (part1), and user input
-// 4. with: true (part2), and user input
-// the return value of each run is printed to stdout
-func run(part2 bool, input string) any {
-	// when you're ready to do part 2, remove this "not implemented" block
-	if part2 {
-		return "not implemented"
-	}
-	// solve part 1 here
+func part_1(input string) any {
 	return 42
 }
+
+func part_2(input string) any {
+	return "not implemented"
+}
+
+func run(part2 bool, input string) any {
+	if part2 {
+		return part_2(input)
+	}
+	return part_1(input)
+}
+
 EOF
 }
 
