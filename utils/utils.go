@@ -59,7 +59,7 @@ func Abs(n int) int {
 	return n
 }
 
-func CountInt(l []int, target int) int {
+func Count[T comparable](l []T, target T) int {
 	count := 0
 	for _, n := range l {
 		if n == target {

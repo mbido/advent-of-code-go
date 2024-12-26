@@ -51,7 +51,7 @@ func part_2(input string) any {
 	res := 0
 
 	for _, l := range left {
-		res += utils.CountInt(right, l) * l
+		res += utils.Count(right, l) * l
 	}
 
 	return res
