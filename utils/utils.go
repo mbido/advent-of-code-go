@@ -69,7 +69,7 @@ func CountInt(l []int, target int) int {
 	return count
 }
 
-func IsSortedInt(l []int, f func(int, int) bool) bool {
+func IsSorted[T any](l []T, f func(T, T) bool) bool {
 	for i := 1; i < len(l); i++ {
 		if !f(l[i-1], l[i]) {
 			return false
@@ -78,11 +78,26 @@ func IsSortedInt(l []int, f func(int, int) bool) bool {
 	return true
 }
 
-func RemoveAtIndex(l *[]int, index int) {
+func RemoveAtIndex[T any](l *[]T, index int) {
 	if index < 0 || index >= len(*l) {
 		return
 	}
 	*l = append((*l)[:index], (*l)[index+1:]...)
+}
+
+func AddAtIndex[T any](l *[]T, index int, value T) {
+	if index < 0 || index > len(*l) {
+		return
+	}
+	*l = append((*l)[:index], append([]T{value}, (*l)[index:]...)...)
+}
+
+func Sum(l []int) int {
+	sum := 0
+	for _, n := range l {
+		sum += n
+	}
+	return sum
 }
 
 func main() {

@@ -12,7 +12,7 @@ func main() {
 }
 
 func isSafe(n []int) bool {
-	if utils.IsSortedInt(n, func(a, b int) bool { return a < b }) || utils.IsSortedInt(n, func(a, b int) bool { return a > b }) {
+	if utils.IsSorted(n, func(a, b int) bool { return a < b }) || utils.IsSorted(n, func(a, b int) bool { return a > b }) {
 		for i := 0; i < len(n)-1; i++ {
 			if utils.Abs(n[i]-n[i+1]) < 1 || utils.Abs(n[i]-n[i+1]) > 3 {
 				return false
